@@ -1,18 +1,20 @@
-import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 
 const ClientResourcePage = () => {
+  const router = useRouter();
+
+  console.log(router.query);
+  function loadProjectHandler() {
+    router.push({
+      pathname: "/clients/[id]/[clientprojectid]",
+      query: { id: "max", clientprojectid: "projecta" },
+    });
+  }
   return (
     <div>
       <h1>This is dynamic Client resource page</h1>
-      <ul>
-        <li>
-          <Link href="/clients/max">MAx</Link>
-        </li>
-        <li>
-          <Link href="/clients/min">MiN</Link>
-        </li>
-      </ul>
+      <button onClick={loadProjectHandler}>Load Project A</button>
     </div>
   );
 };
