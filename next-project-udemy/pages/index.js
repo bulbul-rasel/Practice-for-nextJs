@@ -13,7 +13,7 @@ export default function Home() {
   function findEventsHandler(year, month) {
     const fullPath = `/events/${year}/${month}/abc`;
 
-    router.push();
+    router.push(fullPath);
   }
   return (
     <Fragment className={styles.container}>

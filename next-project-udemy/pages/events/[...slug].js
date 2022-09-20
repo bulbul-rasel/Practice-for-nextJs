@@ -35,7 +35,9 @@ const FilteredEventsPage = () => {
           <p>Invalid filter, Please adjust your Values..!</p>
         </ErrorAlert>
         <div className="center">
-          <Button link="/events">Show All</Button>
+          <Button link="/events" className="center">
+            Show All
+          </Button>
         </div>
       </Fragment>
     );
