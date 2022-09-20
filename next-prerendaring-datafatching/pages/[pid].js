@@ -5,9 +5,9 @@ import fs from "fs/promises";
 const ProductDetailPage = (props) => {
   const { loadedProduct } = props;
 
-  //   if (!loadedProduct) {
-  //     return <p>Loading...</p>;
-  //   }
+  if (!loadedProduct) {
+    return <p>Loading...</p>;
+  }
   return (
     <Fragment>
       <h1>{loadedProduct.title}</h1>
@@ -31,6 +31,9 @@ export async function getStaticProps(context) {
 
   const product = data.products.find((product) => product.id === productId);
 
+  if (!product) {
+    return { notFound: true };
+  }
   return {
     props: {
       loadedProduct: product,
