@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { getAllEvents } from "../dummy-data";
 import { getFeaturedEvents } from "../helpers/api-util";
 
@@ -9,6 +10,13 @@ export default function Home(props) {
   // const featuredEvents = getFeaturedEvents();
   return (
     <div>
+      <Head>
+        <title>NextJs Event</title>
+        <meta
+          name="description"
+          content="find a lot of great events that allow you to evolve..."
+        />
+      </Head>
       <EventList items={props.events} />
     </div>
   );

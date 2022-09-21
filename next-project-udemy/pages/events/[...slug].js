@@ -6,6 +6,7 @@ import ResultsTitle from "../../components/results-title/results-title";
 import Button from "../../components/ui/button";
 import ErrorAlert from "../../components/error-alert/error-alert";
 import useSWR from "swr";
+import Head from "next/head.js";
 
 const FilteredEventsPage = (props) => {
   const router = useRouter();
@@ -87,6 +88,13 @@ const FilteredEventsPage = (props) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Filtered Events</title>
+        <meta
+          name="description"
+          content={`All events for ${numMonth}/ ${numYear}.`}
+        />
+      </Head>
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </Fragment>

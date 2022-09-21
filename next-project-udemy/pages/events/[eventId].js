@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 import ErrorAlert from "../../components/error-alert/error-alert";
@@ -27,6 +28,10 @@ const EventDetailPage = (props) => {
   }
   return (
     <Fragment>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         data={event.date}
