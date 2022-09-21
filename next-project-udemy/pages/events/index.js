@@ -1,13 +1,25 @@
 import React from "react";
-import EventList from "../../components/events/event-list";
-import { getAllEvents } from "../../dummy-data";
+import EventsSearch from "./../../components/events/events-search";
+import EventList from "./../../components/events/event-list";
+import { Fragment } from "react";
+import { getFeaturedEvents } from "./../../dummy-data";
+import { useRouter } from "next/router";
+import styles from "../../styles/Home.module.css";
 
 const AllEventPage = () => {
-  const events = getAllEvents();
+  const router = useRouter();
+  const featuredEvents = getFeaturedEvents();
+
+  function findEventsHandler(year, month) {
+    const fullPath = `/events/${year}/${month}/abc`;
+
+    router.push(fullPath);
+  }
   return (
-    <div>
-      <EventList items={events} />
-    </div>
+    <Fragment className={styles.container}>
+      <EventsSearch onSearch={findEventsHandler} />
+      <EventList items={featuredEvents} />
+    </Fragment>
   );
 };
 
