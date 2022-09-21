@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { getAllEvents, getFeaturedEvents } from "./../../helpers/api-util.js";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
+import Head from "next/head";
 
 const AllEventPage = (props) => {
   const router = useRouter();
@@ -18,6 +19,13 @@ const AllEventPage = (props) => {
   }
   return (
     <Fragment className={styles.container}>
+      <Head>
+        <title>All Event</title>
+        <meta
+          name="description"
+          content="find a lot of great events that allow you to evolve..."
+        />
+      </Head>
       <EventsSearch onSearch={findEventsHandler} />
       <EventList items={events} />
     </Fragment>
