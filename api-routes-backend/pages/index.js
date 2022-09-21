@@ -10,12 +10,24 @@ export default function Home() {
 
     const enteredEmail = emailInputRef.current.value;
     const enteredFeedback = feedbackInputRef.current.value;
+
+    const reqBody = { email: enteredEmail, text: enteredFeedback };
+
+    fetch("/api/feedback", {
+      method: "POST",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
 
   return (
     <div className={styles.container}>
       <h1>The Home Page</h1>
-      <form onSubmit={submitHandler()}>
+      <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="email">Your Email Address</label>
           <input type="email" id="email" ref={emailInputRef} />
