@@ -1,5 +1,5 @@
 function handler(req, res) {
-  import NewComment from "./../../../components/input/new-comment";
+  //   import NewComment from "./../../../components/input/new-comment";
   const eventId = req.query.eventId;
 
   if (req.method === "POST") {
